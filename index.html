@@ -2,35 +2,118 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Dicee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Battle - Professional Dice Game</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
-  <body>
-
-    <div class="container">
-      <h1>Refresh Me</h1>
-
-      <div class="dice">
-        <p>Player 1</p>
-        <img class="img1" src="images/dice6.png">
-      </div>
-
-      <div class="dice">
-        <p>Player 2</p>
-        <img class="img2" src="images/dice6.png">
-      </div>
-
-      <!-- Refresh Button -->
-      <button class="refresh-button" onclick="window.location.reload();">Once more</button>
-
+  <body class="light-mode">
+    <div class="theme-toggle">
+      <button id="themeToggle" class="theme-btn">
+        <i class="fas fa-moon"></i>
+      </button>
     </div>
 
-    <script src="index.js" charset="utf-8"></script>
+    <div class="container">
+      <header class="game-header">
+        <h1 class="game-title">
+          <i class="fas fa-dice"></i>
+          Dice Battle
+        </h1>
+        <p class="game-subtitle">Roll the dice and see who wins!</p>
+      </header>
 
+      <div class="game-main">
+        <!-- Left Panel - Score Board -->
+        <div class="score-board">
+          <div class="score-card player1-score">
+            <h3>Player 1</h3>
+            <div class="score">0</div>
+            <div class="wins">Wins: 0</div>
+          </div>
+          <div class="score-card player2-score">
+            <h3>Player 2</h3>
+            <div class="score">0</div>
+            <div class="wins">Wins: 0</div>
+          </div>
+        </div>
+
+        <!-- Center Panel - Game Area -->
+        <div class="game-area">
+          <div class="dice-container">
+            <div class="dice player1-dice">
+              <div class="player-label">Player 1</div>
+              <div class="dice-image-container">
+                <img class="dice-img" src="images/dice6.png" alt="Player 1 Dice">
+              </div>
+              <div class="dice-value">6</div>
+            </div>
+
+            <div class="vs-section">
+              <div class="vs-text">VS</div>
+              <div class="round-info">
+                <span class="round-number">Round 1</span>
+              </div>
+            </div>
+
+            <div class="dice player2-dice">
+              <div class="player-label">Player 2</div>
+              <div class="dice-image-container">
+                <img class="dice-img" src="images/dice6.png" alt="Player 2 Dice">
+              </div>
+              <div class="dice-value">6</div>
+            </div>
+          </div>
+
+          <div class="result-display">
+            <h2 class="result-text">Ready to Roll!</h2>
+            <div class="result-icon">🎲</div>
+          </div>
+
+          <div class="controls">
+            <button class="roll-btn primary-btn" id="rollBtn">
+              <i class="fas fa-dice"></i>
+              Roll Dice
+            </button>
+            <button class="reset-btn secondary-btn" id="resetBtn">
+              <i class="fas fa-redo"></i>
+              Reset Game
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Panel - Stats and History -->
+        <div class="right-panel">
+          <div class="game-stats">
+            <div class="stat-item">
+              <i class="fas fa-chart-line"></i>
+              <span>Total Rolls: <span id="totalRolls">0</span></span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-clock"></i>
+              <span>Game Time: <span id="gameTime">00:00</span></span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-trophy"></i>
+              <span>Best Streak: <span id="bestStreak">0</span></span>
+            </div>
+          </div>
+
+          <div class="history-section">
+            <h3>Recent Rolls</h3>
+            <div class="history-list" id="historyList">
+              <!-- History items will be added here -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="game-footer">
+        <p>&copy; 2024 Dice Battle - Professional Dice Game</p>
+      </footer>
+    </div>
+
+    <script src="index.js"></script>
   </body>
-
-  <footer>
-    Learning JavaScript
-  </footer>
 </html>
